@@ -134,3 +134,4 @@ C:\Den\IT\ASP.NET\Practice\Practice\obj\Debug\net8.0\refint\Practice.dll
 C:\Den\IT\ASP.NET\Practice\Practice\obj\Debug\net8.0\Practice.pdb
 C:\Den\IT\ASP.NET\Practice\Practice\obj\Debug\net8.0\Practice.genruntimeconfig.cache
 C:\Den\IT\ASP.NET\Practice\Practice\obj\Debug\net8.0\ref\Practice.dll
+C:\Den\IT\ASP.NET\Practice\Practice\obj\Debug\net8.0\Practice.sourcelink.json

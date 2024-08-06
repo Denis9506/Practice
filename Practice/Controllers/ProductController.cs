@@ -44,7 +44,7 @@ namespace Practice.Controllers
         }
 
         [HttpDelete("{id}")]
-        public async Task<ActionResult> DeleteProduct(int id)
+        public async Task<ActionResult<int>> DeleteProduct(int id)
         {
             var product = await _context.Products.FindAsync(id);
             if (product == null)
@@ -54,8 +54,10 @@ namespace Practice.Controllers
 
             _context.Products.Remove(product);
             await _context.SaveChangesAsync();
-            return NoContent();
+
+            return Ok(id); 
         }
+
 
         [HttpPut("{id}")]
         public async Task<ActionResult<Product>> UpdateProduct(int id, Product product)
@@ -99,7 +101,7 @@ namespace Practice.Controllers
                     productsQuery = productsQuery.OrderByDescending(p => p.Name);
                     break;
                 default:
-                    return BadRequest();
+                    return BadRequest("Invalid sort order. Use 'asc' or 'desc'.");
             }
 
             return await productsQuery.ToListAsync();
