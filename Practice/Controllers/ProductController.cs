@@ -16,6 +16,66 @@ namespace Practice.Controllers
             _context = context;
         }
 
+        [HttpPost("{userId}/add/{productId}")]
+        public async Task<ActionResult<User>> AddExistingProductToUser(int userId, int productId)
+        {
+            var user = await _context.Users.Include(u => u.Products).FirstOrDefaultAsync(u => u.Id == userId);
+
+            if (user == null)
+            {
+                return NotFound($"User with ID {userId} not found.");
+            }
+            var product = await _context.Products.FindAsync(productId);
+            if (product == null)
+            {
+                return NotFound($"Product with ID {productId} not found.");
+            }
+            if (user.Products.Any(p => p.Id == productId))
+            {
+                return BadRequest($"Product with ID {productId} is already associated with the user.");
+            }
+            user.Products.Add(product);
+            await _context.SaveChangesAsync();
+
+            return Ok(user);
+        }
+
+
+        [HttpGet("{userId}/products")]
+        public async Task<ActionResult<IEnumerable<Product>>> GetUserProducts(int userId)
+        {
+            var user = await _context.Users.Include(u => u.Products).FirstOrDefaultAsync(u => u.Id == userId);
+
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(user.Products);
+        }
+
+        [HttpDelete("{userId}/remove/{productId}")]
+        public async Task<ActionResult> RemoveProductFromUser(int userId, int productId)
+        {
+            var user = await _context.Users.Include(u => u.Products).FirstOrDefaultAsync(u => u.Id == userId);
+
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            var product = user.Products.FirstOrDefault(p => p.Id == productId);
+            if (product == null)
+            {
+                return NotFound();
+            }
+
+            user.Products.Remove(product);
+            await _context.SaveChangesAsync();
+
+            return NoContent();
+        }
+
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Product>>> GetProducts()
         {

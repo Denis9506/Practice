@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Den\\IT\\ASP.NET\\Practice\\Practice\\Practice.csproj": {}
+    "C:\\Den\\IT\\ASP.NET\\Practice_GIT\\Practice\\Practice\\Practice.csproj": {}
   },
   "projects": {
-    "C:\\Den\\IT\\ASP.NET\\Practice\\Practice\\Practice.csproj": {
+    "C:\\Den\\IT\\ASP.NET\\Practice_GIT\\Practice\\Practice\\Practice.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Den\\IT\\ASP.NET\\Practice\\Practice\\Practice.csproj",
+        "projectUniqueName": "C:\\Den\\IT\\ASP.NET\\Practice_GIT\\Practice\\Practice\\Practice.csproj",
         "projectName": "Practice",
-        "projectPath": "C:\\Den\\IT\\ASP.NET\\Practice\\Practice\\Practice.csproj",
+        "projectPath": "C:\\Den\\IT\\ASP.NET\\Practice_GIT\\Practice\\Practice\\Practice.csproj",
         "packagesPath": "C:\\Users\\den95\\.nuget\\packages\\",
-        "outputPath": "C:\\Den\\IT\\ASP.NET\\Practice\\Practice\\obj\\",
+        "outputPath": "C:\\Den\\IT\\ASP.NET\\Practice_GIT\\Practice\\Practice\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\den95\\AppData\\Roaming\\NuGet\\NuGet.Config",
